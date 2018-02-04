@@ -9,14 +9,27 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "alert-node": "^1.0.2",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
-    "express": "^4.16.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.6",
     "http": "0.0.0",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^7.4.1",
     "pg-promise": "^7.3.3",
-    "promise": "^8.0.1"
+    "promise": "^8.0.1",
+    "pug": "^2.0.0-rc.4",
+    "pug-bootstrap": "0.0.15",
+    "router-express": "^1.5.2",
+    "sequelize": "^4.32.6"
+  },
+  "devDependencies": {
+    "express": "^4.16.2"
   }
 }

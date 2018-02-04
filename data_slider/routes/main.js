@@ -4,7 +4,7 @@ var path = require("path");
 module.exports = {
 
   get: function(req, res){
-    res.sendFile(path.join(__dirname + '/../public/views/basic.html'));
+    res.render(path.join(__dirname + '/../public/views/login.pug'));
 
   }
 
