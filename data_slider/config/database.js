@@ -47,7 +47,7 @@ module.exports = {
             return done(null, false);
           }
           else{
-              console.log('The success is running.')
+              console.log(result.rows[0]);
               return done(null, result.rows[0]);
           }
 

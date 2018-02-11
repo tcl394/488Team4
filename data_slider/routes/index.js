@@ -14,8 +14,8 @@ module.exports = function(passport){
 
   // POST /login
   router.post('/login', passport.authenticate('local-login', {
-          successRedirect : '/dashboard', // redirect to the secure profile section
-          failureRedirect : '/invalid_login', // redirect back to the signup page if there is an error
+          successRedirect : '/dashboard', // redirect to the secure dashboard section
+          failureRedirect : '/invalid_login', // redirect to invalid login page if login fails
           failureFlash : true // allow flash messages
       }));
 
