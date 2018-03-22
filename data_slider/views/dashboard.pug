@@ -1,20 +1,33 @@
 extends layout_
 
-block content
-  .main.container.clearfix
-    .row
-      .card
-        .container
-          h1 #{message} 
-          
-          h1.display-4
-            a(class='button' href = "/page2") Next Page
-
-          h1.display-4
-            a(class='button' href = "/logout") Logout
-
-
-
-      .col-md-8.col-md-offset-2
-        
-      
+doctype pug
+head
+  style.
+    h1 {border: 5px solid black;}
+title Synek Refferals
+link(rel='stylesheet', type='text/css', href='mystyle.css')
+.w3-container.w3-teal
+  h1(align='center') Welcome!
+.w3-container.w3-teal
+  p
+  p
+    input(type='button', value='Add Referrals', style='float: left;')
+    input(type='button', value='Logout', style='float: right;')
+  p
+.w3-container(align='center')
+  h2
+    | Account Information
+    label -Name-
+    p
+    p
+      label -Number-
+    p
+      label -Email-
+    p
+      input(type='button', value='Edit Information', style='float: center;')
+    h2
+      | Scheduled Parties
+      label -Date-
+      p
+      p
+        input(type='button', value='View/Edit Dates', style='float: center;')

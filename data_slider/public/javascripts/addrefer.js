@@ -10,7 +10,7 @@ $(document).ready(function() {
             x++; //text box increment
             $(wrapper).append('input(type='text', name='mytext[]', value='First Name'
               input(type='text', name='mytext[]', value='Last Name'
-              input(type='text', name='mytext[]', value='Email Address')<a href="#" class="remove_field">Remove</a></div>'); //add input box
+              input(type='text', name='mytext[]', value='Email Address'))<a href="#" class="remove_field">Remove</a></div>'); //add input box
         }
     });
 
