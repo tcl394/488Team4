@@ -1,5 +1,7 @@
 var express = require('express');
 
+var database = require ('../config/database');
+
 
 module.exports = function(passport){
 
@@ -21,7 +23,8 @@ module.exports = function(passport){
 
   router.get('/dashboard', isLoggedIn, function(req, res, next) {
     console.log('The session ID is: ' + req.user);
-    return res.render('dashboard', { title: 'Dashboard', message: 'Welcome '+ req.user});
+
+    database.findByEmail(req.user, res, dashboardCallback);
 
   });
 
@@ -42,6 +45,13 @@ module.exports = function(passport){
           return res.render('invalidLogin', { title: 'Invalid Login'});
       });
 
+
+      router.get('/refer', function(req, res, next) {
+        console.log(req.user);
+        return res.render('Refer', { title: 'Add Referrals'});
+
+      });
+
     function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on
@@ -53,4 +63,13 @@ module.exports = function(passport){
   }
 
     return router;
+
+
 }
+
+function dashboardCallback(res, userObject){
+  return res.render('dashboard', { title: 'Dashboard', message: 'Welcome '+ userObject.email, name: userObject.firstname });
+}
+
+
+console.log('userObject');

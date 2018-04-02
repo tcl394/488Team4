@@ -6,7 +6,7 @@ function call1 (){
 
     row1 = 1;
 
-    var url = "http://localhost:3000/API/getRow"
+    var url = "http://localhost:3000/config/database/findByEmail"
     var data = {"n": row1}
     var result;
     var successFunction = function(object){
@@ -22,8 +22,8 @@ function call1 (){
       var quest = str.slice(39);
       var question = quest.split("\"");
 
-      document.getElementById("title1").innerHTML = questionNum;
-      document.getElementById("paragraph1").innerHTML = question[0];
+      document.getElementById("name").innerHTML = str;
+      //document.getElementById("paragraph1").innerHTML = question[0];
     }
   }
   $.getJSON(url, data, successFunction);
