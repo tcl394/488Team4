@@ -21,9 +21,16 @@ module.exports = function(passport){
           failureFlash : true // allow flash messages
       }));
 
+    // POST /edit_account
+    //router.post('/edit_account',{
+
+        //});
+
+
+
+
   router.get('/dashboard', isLoggedIn, function(req, res, next) {
     console.log('The session ID is: ' + req.user);
-
     database.findByEmail(req.user, res, dashboardCallback);
 
   });
@@ -52,6 +59,11 @@ module.exports = function(passport){
 
       });
 
+      router.get('/edit_account', isLoggedIn, function(req, res, next) {
+        database.findByEmail(req.user, res, editCallback);
+
+      });
+
     function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on
@@ -68,7 +80,13 @@ module.exports = function(passport){
 }
 
 function dashboardCallback(res, userObject){
-  return res.render('dashboard', { title: 'Dashboard', message: 'Welcome '+ userObject.email, name: userObject.firstname });
+  return res.render('dashboard', { title: 'Dashboard', fname: userObject.firstname, name: userObject.firstname, lname: userObject.lastname, address1: userObject.address,
+  city: userObject.city, state: userObject.state, zip: userObject.zip, email: userObject.email });
+}
+
+function editCallback(res, userObject){
+  return res.render('edit_account', { title: 'Edit Account Info', firstname: userObject.firstname, lastname: userObject.lastname, email: userObject.email,
+address: userObject.address, city: userObject.city, state: userObject.state, zip: userObject.zip});
 }
 
 

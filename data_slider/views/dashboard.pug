@@ -1,27 +1,32 @@
 
-doctype pug
-head
-  style.
-    h1 {border: 5px solid black;}
-title Synek Refferals
-link(rel='stylesheet', type='text/css', href='mystyle.css')
-.w3-container.w3-teal
-  h1(align='center') Welcome!
-.w3-container.w3-teal
-  p
-  p
-    input(type='button', value='Add Referrals', style='float: left;')
-    input(type='button', value='Logout', style='float: right;')
-  p
-.w3-container(align='center')
-  h2
-    | Account Information
-    label -Name-
-    p
-    p
-      label -Number-
-    p
-      label -Email-
-    p
-      input(type='button', value='Edit Information', style='float: center;')
-  
+extends layout_
+
+block content
+  .main.container.clearfix
+    .row
+      .card
+        .container
+            style.
+
+            h1(align='center') Welcome #{fname}!
+            
+            a(href="/refer")
+              button(type="button", value='Add Referrals', style='float: left;') Add Referrals
+            a(href="/logout")
+              button(type="button", value='Logout', style='float: right;') Logout
+            
+            h2(align='center') Account Information:
+              br 
+              br
+              
+              p(align='center')
+                label #{name} #{lname}
+              p(align='center')
+                label #{address1}
+              p(align='center')
+                label #{city}, #{state} #{zip}
+              p(align='center')
+                label #{email}
+            h3(align='center')
+              a(href="/edit_account")
+                button(type="button", value='Edit Account Information', style='float: center;') Edit Account Information

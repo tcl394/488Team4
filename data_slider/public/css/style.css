@@ -9,7 +9,26 @@ body {
 a:hover {
 	color: rgba(49,176,213, .7);
 }
-
+h1 {
+    color: maroon;
+    font-family: verdana;
+    font-size: 300%;
+}
+h2 {
+    color: black;
+    font-family: verdana;
+    font-size: 200%;
+}
+h3 {
+    color: grey;
+    font-family: verdana;
+    font-size: 100%;
+}
+p  {
+    color: darkred;
+    font-family: courier;
+    font-size: 80%;
+}
 /* Component Styles */
 
 .navbar {

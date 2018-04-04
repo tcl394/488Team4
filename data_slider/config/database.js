@@ -45,7 +45,24 @@ module.exports = {
           else{
               console.log(result.rows[0]);
               data = result.rows[0];
-              dashboardCallback(res, data); 
+              dashboardCallback(res, data);
+            }
+      });
+  },
+  addReferral: function (referrer_email, email, first_name, last_name){
+    var makeString = format('INSERT  * FROM referrer WHERE email = \'%s\';', email);
+    console.log(makeString);
+    var findUser = makeString.toString();
+
+      client.query(findUser, function (err, result) {
+          if (err){
+            console.log('Error here.' + result);
+            return err;
+          }
+          else{
+              console.log(result.rows[0]);
+              data = result.rows[0];
+              dashboardCallback(res, data);
             }
       });
   }
