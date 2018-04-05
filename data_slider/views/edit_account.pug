@@ -10,31 +10,27 @@ block content
         form(method='POST' action='/edit_account')
           div.form-group
             label(for='first_name') First Name:
-              textarea(rows=1).form-control
+              textarea(id = 'firstname', name = 'firstname', rows=1).form-control
                 | #{firstname}
           div.form-group
             label(for='last_name') Last Name:
-              textarea(rows=1).form-control
+              textarea(id = 'lastname', name = 'lastname', rows=1).form-control
                 | #{lastname}
           div.form-group
-            label(for='email') Email:
-              textarea(rows=1).form-control
-                | #{email}
-          div.form-group
             label(for='address') Address:
-              textarea(rows=1).form-control
+              textarea(id = 'address', name = 'address', rows=1).form-control
                 | #{address}
           div.form-group
             label(for='city') City:
-              textarea(rows=1).form-control
+              textarea(id = 'firstname', name = 'city', rows=1).form-control
                 | #{city}
           div.form-group
             label(for='state') State:
-              textarea(rows=1).form-control
+              textarea(id = 'firstname', name = 'state', rows=1).form-control
                 | #{state}
           div.form-group
             label(for='zip') Zip Code:
-              textarea(rows=1).form-control
+              textarea(id = 'firstname', name = 'zip', rows=1).form-control
                 | #{zip}
           button.btn.btn-primary(type='submit') Save Changes
         

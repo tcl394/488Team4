@@ -50,7 +50,7 @@ module.exports = {
       });
   },
   addReferral: function (referrer_email, email, first_name, last_name){
-    var makeString = format('INSERT  * FROM referrer WHERE email = \'%s\';', email);
+    var makeString = format('INSERT INTO referred (referrer_email, email, firstname, lastname) VALUES (\'%s\',\'%s\',\'%s\',\'%s\');', referrer_email, email, first_name, last_name);
     console.log(makeString);
     var findUser = makeString.toString();
 
@@ -62,7 +62,25 @@ module.exports = {
           else{
               console.log(result.rows[0]);
               data = result.rows[0];
-              dashboardCallback(res, data);
+            }
+      });
+  },
+  updateAccount: function (firstname, lastname, address, city, state, zip, email){
+    var makeString = format('UPDATE referrer SET firstname = \'%s\', lastname = \'%s\', address = \'%s\', city = \'%s\', state = \'%s\', zip = \'%s\' WHERE email = \'%s\';',
+   firstname, lastname, address, city, state, zip, email);
+
+
+    console.log(makeString);
+    var findUser = makeString.toString();
+
+      client.query(findUser, function (err, result) {
+          if (err){
+            console.log('Error here.' + result);
+            return err;
+          }
+          else{
+              console.log(result.rows[0]);
+              data = result.rows[0];
             }
       });
   }

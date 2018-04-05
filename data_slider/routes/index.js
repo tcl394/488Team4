@@ -21,10 +21,40 @@ module.exports = function(passport){
           failureFlash : true // allow flash messages
       }));
 
-    // POST /edit_account
-    //router.post('/edit_account',{
+  // POST /edit_account
+  router.post('/edit_account', isLoggedIn, function(req, res, next) {
+    if (req.body.firstname && req.body.lastname && req.body.address
+    && req.body.city && req.body.state && req.body.zip) {
+      console.log(req.body.firstname + req.body.lastname + req.body.address
+      + req.body.city + req.body.state + req.body.zip);
 
-        //});
+      database.updateAccount(req.body.firstname, req.body.lastname, req.body.address, req.body.city, req.body.state, req.body.zip, req.user);
+
+
+
+      res.redirect('/dashboard');
+
+    } else {
+      var err = new Error('Email and password are required.');
+      err.status = 401;
+      return next(err);
+    }
+  });
+
+  // POST /refer
+  router.post('/refer', isLoggedIn, function(req, res, next) {
+    if (req.body.firstname && req.body.lastname && req.body.email) {
+
+      database.addReferral(req.user, req.body.email, req.body.firstname, req.body.lastname);
+
+      res.render('refer_success', { title: 'Referral Added', referredname: req.body.firstname});
+
+    } else {
+      var err = new Error('BAD');
+      err.status = 401;
+      return next(err);
+    }
+  });
 
 
 
@@ -53,7 +83,7 @@ module.exports = function(passport){
       });
 
 
-      router.get('/refer', function(req, res, next) {
+      router.get('/refer', isLoggedIn, function(req, res, next) {
         console.log(req.user);
         return res.render('Refer', { title: 'Add Referrals'});
 
