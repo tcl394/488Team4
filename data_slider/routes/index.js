@@ -65,10 +65,10 @@ module.exports = function(passport){
 
   });
 
-  router.get('/page2', isLoggedIn, function(req, res, next) {
-    console.log('The session ID is: ' + req.user);
-    return res.render('page2', { title: 'Page 2'});
+  router.get('/survey', function(req, res, next) {
+    return res.render('survey', { title: 'Synek Survey'});
   });
+
 
   router.get('/logout', function(req, res) {
         req.logout();
