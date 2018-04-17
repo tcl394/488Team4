@@ -1,3 +1,6 @@
+
+
+
 var api = require('./API')();
 
 var express = require('express');
@@ -12,6 +15,7 @@ require('./config/passport')(passport);
 var User = require('./models/user');
 
 var bodyParser  = require('body-parser');
+
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 
@@ -30,7 +34,7 @@ app.use(morgan('dev'));
 
 app.use(express.static('./public'));
 
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(flash()); // use connect-flash for flash messages stored in session

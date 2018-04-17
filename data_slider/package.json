@@ -30,7 +30,8 @@
     "pug": "^2.0.0-rc.4",
     "pug-bootstrap": "0.0.15",
     "router-express": "^1.5.2",
-    "sequelize": "^4.32.6"
+    "sequelize": "^4.32.6",
+    "sparkpost": "^2.1.2"
   },
   "devDependencies": {
     "express": "^4.16.2"

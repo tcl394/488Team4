@@ -2,6 +2,10 @@ var express = require('express');
 
 var database = require ('../config/database');
 
+const SparkPost = require('sparkpost')
+const client = new SparkPost('149766bdfb389444dbef57ba524cea1695ca1f3d')
+
+
 
 module.exports = function(passport){
 
@@ -41,6 +45,31 @@ module.exports = function(passport){
     }
   });
 
+  // POST /survey
+  router.post('/survey', function(req, res, next) {
+    var q1a;
+    var q2a;
+    var q3a;
+    var q4a;
+
+    console.log(req.body.Black);
+    if (req.body.Black = "on"){
+      q1a = "a";
+    }else if
+    (req.body.Black = "on"){
+      q1b = "b";
+    }
+    else if
+    (req.body.Black = "on"){
+      q1c = "c";
+    }
+    else if
+    (req.body.Black = "on"){
+      q1d = "d";
+    }
+
+    });
+
   // POST /refer
   router.post('/refer', isLoggedIn, function(req, res, next) {
     if (req.body.firstname && req.body.lastname && req.body.email) {
@@ -54,6 +83,25 @@ module.exports = function(passport){
       err.status = 401;
       return next(err);
     }
+
+client.transmissions.send({
+  content: {
+    from: 'teresacarlsonleggett@gmail.com',
+    subject: 'Hello from node-sparkpost',
+    html: '<p>Hello world</p>'
+  },
+  recipients: [
+    {address: 'tylerwleggett@gmail.com'}
+  ]
+})
+.then(data => {
+  console.log('Woohoo! You just sent your first mailing!')
+  console.log(data)
+})
+.catch(err => {
+  console.log('Whoops! Something went wrong')
+  console.log(err)
+})
   });
 
 
