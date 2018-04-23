@@ -1,0 +1,72 @@
+extends layout_
+
+block content
+  .main.container
+    .row
+      h3(align='left')
+        a(href="/dashboard")
+        
+      .col-md-6.col-md-offset-4
+        img.wine(src='/images/white_wine.png', alt='white_wine', height='62', width='42')
+        img.wine(src='/images/red_wine.png', alt='white_wine', height='62', width='42')
+        img.wine(src='/images/wine_and_bottle.png', alt='white_wine', height='62', width='42') 
+        img.wine(src='/images/red_wine_2.png', alt='white_wine', height='62', width='42')
+        img.wine(src='/images/white_wine.png', alt='white_wine', height='62', width='42')
+        img.wine(src='/images/red_wine.png', alt='white_wine', height='62', width='42')
+      
+      .col-md-6.col-md-offset-3
+        h2 Customer Survey
+        p Please complete the survey there is no wrong answer!
+        p This will help us determine which wines are a good choice for you!
+        p Please select one answer for each question!
+        
+
+        form(method='POST' action='/survey')
+          div.form-group
+            label(for='Question1?') How do you take your coffee?
+            input.form-control(type='radio' id='Q1a' name='Q1' value = 'A')
+            label(for='Black') Black
+            input.form-control(type='radio' id='Q1b' name='Q1' value = 'B')
+            label(for='Cream') With Cream
+            input.form-control(type='radio' id='Q1c' name='Q1' value = 'C')
+            label(for='sugar') With Sugar
+            input.form-control(type='radio' id='Q1d' name='Q1' value = 'D')
+            label(for='Both') With Cream & Sugar
+          div.form-group
+            label(for='Question2') Which kind of Chocolate do you prefer?
+            input.form-control(type='radio' id='Q2a' name='Q2' value = 'A')
+            label(for='Dark') Dark
+            input.form-control(type='radio' id='Q2b' name='Q2' value = 'B')
+            label(for='Milk') Milk Chocolate
+            input.form-control(type='radio' id='Q2c' name='Q2' value = 'C')
+            label(for='Neither') Neither
+            input.form-control(type='radio' id='Q2d' name='Q2' value = 'D')
+            label(for='Both') Both
+          div.form-group
+            
+            label(for='Question3') Which type of fruit do you prefer?
+            input.form-control(type='radio' id='Q3a' name='Q3' value = 'A')
+            label(for='PP') Peaches & Pears
+            input.form-control(type='radio' id='Q3b' name='Q3' value = 'B')
+            label(for='Berries') Strawberries & Raspberries
+            input.form-control(type='radio' id='Q3c' name='Q3' value = 'C')
+            label(for='Dark Fruit') Plums & Blueberries
+            input.form-control(type='radio' id='Q3d' name='Q3' value = 'D')
+            label(for='citris') Oranges & Grapefruit 
+        
+          div.form-group
+                
+            label(for='Question3') Which dessert would you prefer?
+            input.form-control(type='radio' id='Q4a' name='Q4' value = 'A')
+            label(for='SR Pie') Strawberry Rhubarb Pie 
+            input.form-control(type='radio' id='Q4b' name='Q4' value = 'B')
+            label(for='CT') Creamy Tiramissu
+                
+          div.form-group    
+          h3 Please enter your email address!
+          br
+          label(for='email') Email
+          input.form-control(type='text' id='email' placeholder='email' name='email')
+    
+          button.btn.btn-primary(type='submit') Submit Survey
+      .row
