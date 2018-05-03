@@ -83,16 +83,14 @@ module.exports = function(passport){
 
 client.transmissions.send({
   content: {
-    from: 'surveys@team4referrals.com',
-    subject: 'Please take our survey!',
-    html: '<p>Hi there! You have been invited to take our wine preference survey! To do so, follow this link: http://localhost:3000/survey</p>'
+    template_id: 'my-first-email'
   },
   recipients: [
     {address: req.body.email}
   ]
 })
 .then(data => {
-  console.log('Woohoo! You just sent your first mailing!')
+  console.log('Survey sent successfuly to: ' + req.body.email)
   console.log(data)
 })
 .catch(err => {
